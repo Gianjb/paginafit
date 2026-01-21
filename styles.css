@@ -1,0 +1,275 @@
+/* DEFINICIÓN DE LA PALETA DE COLORES (Variables) */
+:root {
+    --bg-body: #111111;       /* Negro suave de fondo */
+    --bg-card: #1e1e1e;       /* Gris muy oscuro para las tarjetas */
+    --text-white: #ffffff;    /* Texto principal */
+    --text-gray: #b3b3b3;     /* Texto secundario */
+    --accent: #5fffa0;        /* TU VERDE NEÓN */
+    --border-color: #333333;  /* Bordes sutiles */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; /* Agregué una fuente básica para que se vea limpio */
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-white);
+}
+
+/***** HEADER *****/
+header {
+    background-color: #000000; /* Header negro puro para diferenciarlo */
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 5rem;
+    padding: 1rem;
+    position: sticky; /* Opcional: Para que el menú te siga al bajar */
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.iconos-header {
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    color: var(--text-white); /* Iconos blancos */
+    cursor: pointer;
+}
+
+.lado-izq, .lado-der {
+    flex: 1;
+    display: flex;
+}
+
+.lado-der {
+    justify-content: flex-end;
+}
+
+h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: 800; /* Más grueso para impacto */
+}
+/***** FIN HEADER *****/
+
+
+/***** MAIN *****/
+main {
+    /* Eliminé el background gris y el gap gigante del main */
+    display: flex;
+    flex-direction: column;
+}
+
+/* INICIO */
+.inicio {
+    /* Agregué el degradado oscuro sobre la imagen para que el texto se lea SIEMPRE */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                      url(https://i.pinimg.com/736x/99/62/1d/99621d22dcf2b65c3b7ca8175d3a9f2c.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh; /* Altura de la pantalla */
+    
+    display: flex;
+    align-items: flex-start;    /* Alineado arriba */
+    justify-content: flex-start; /* Alineado a la izquierda */
+    
+    padding-top: 10rem; /* Bajamos un poco el texto */
+    padding-left: 5%;
+}
+
+.frase-inicio h2 {
+    color: var(--text-white);
+    font-size: 2rem;
+    font-weight: 400; /* Letra fina arriba */
+}
+
+.frase-inicio span {
+    color: var(--accent); /* EL VERDE NEÓN */
+    font-size: 3.5rem;    /* Texto gigante */
+    font-weight: 900;     /* Letra gorda */
+    line-height: 0.9;     /* Pegadito */
+    display: block;
+}
+
+.autor {
+    color: var(--text-gray);
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+/* FIN INICIO */
+
+
+/* SECCIONES GENERALES (Padding interno en vez de gap externo) */
+.sec1, .sec2, .redes {
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+/* PARTE DE FOTOS (.sec1) */
+.sec1 h2 {
+    color: var(--text-white);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--accent); /* Subrayado verde */
+    padding-bottom: 0.5rem;
+}
+
+.sec1 img {
+    width: 100%;
+    max-width: 500px; /* Para que no sean gigantes en PC */
+    border-radius: 10px;
+    /* Un pequeño filtro para que las fotos se integren al modo oscuro */
+    filter: brightness(0.9); 
+}
+
+
+/* PLANES FIT (.sec2) */
+.sec2 h2 {
+    font-size: 2.5rem;
+    color: var(--text-white);
+    text-transform: uppercase;
+}
+
+.planes {
+    background-color: var(--bg-card); /* Tarjeta oscura */
+    border: 1px solid var(--border-color); /* Borde sutil */
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra oscura */
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    max-width: 350px; /* Límite de ancho */
+    overflow: hidden; /* Para que nada se salga de los bordes redondos */
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+/* Efecto al pasar el mouse por encima del plan */
+.planes:hover {
+    border-color: var(--accent); /* Se ilumina el borde verde */
+    transform: translateY(-5px); /* Flota un poquito */
+}
+
+.planes * {
+    /* Quitamos el borde negro feo de los items internos */
+    border-bottom: 1px solid var(--border-color); 
+    padding: 1rem 0;
+    margin: 0 1rem; /* Margen a los costados para que la linea no toque el borde */
+}
+
+/* Quitamos la línea del último elemento (el botón) */
+.planes button {
+    border-bottom: none;
+    margin: 1.5rem auto; /* Centrado */
+}
+
+/* TÍTULO DEL PLAN */
+.planes h3 {
+    font-size: 1.5rem;
+    color: var(--text-white);
+    background-color: #000; /* Fondo negro para el título */
+    margin: 0; /* Reseteo margin para que ocupe todo el ancho */
+    padding: 1.5rem 0;
+    border-bottom: 2px solid var(--accent); /* Línea verde debajo del título */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+/* PRECIO */
+.precio {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent); /* Precio en verde */
+    border-bottom: none !important; /* Sin línea divisoria abajo del precio */
+    padding-bottom: 0 !important;
+}
+
+.planes p {
+    color: var(--text-gray); /* Texto descriptivo en gris */
+}
+
+/* BOTÓN DE COMPRA */
+.planes button {
+    background-color: var(--accent); /* FONDO VERDE */
+    color: #000000; /* TEXTO NEGRO (para contraste) */
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 80%;
+    transition: background 0.3s;
+}
+
+.planes button:hover {
+    background-color: #fff; /* Al pasar el mouse se pone blanco */
+}
+/* FIN PLANES */
+
+
+/* REDES Y FRASE */
+.redes h3 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    text-align: center;
+    max-width: 80%;
+    margin: -5rem 0 -1.5rem 0;
+}
+
+.redes h5.frase {
+    color: var(--accent); /* Verde */
+    font-size: 1.2rem;
+    margin-bottom: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.redes h4 {
+    color: var(--text-gray);
+    font-size: 1.7rem;
+    margin-bottom: -.5rem;
+}
+
+.redes p.ig {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* IMPORTANTE: Si tu icono de instagram es negro, 
+   usamos este filtro para volverlo blanco automáticamente */
+.redes img {
+    width: 30px;
+    filter: invert(1); 
+}
+/* FIN REDES */
+
+
+/***** FOOTER *****/
+footer {
+    background-color: #000;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--border-color);
+}
+
+footer p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
