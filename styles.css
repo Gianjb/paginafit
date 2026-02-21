@@ -1,37 +1,144 @@
 /* DEFINICIÓN DE LA PALETA DE COLORES (Variables) */
 :root {
-    --bg-body: #111111;       /* Negro suave de fondo */
-    --bg-card: #1e1e1e;       /* Gris muy oscuro para las tarjetas */
-    --text-white: #ffffff;    /* Texto principal */
-    --text-gray: #b3b3b3;     /* Texto secundario */
-    --accent: #5fffa0;        /* TU VERDE NEÓN */
-    --border-color: #333333;  /* Bordes sutiles */
+    --bg-body: #111111;
+    --bg-card: #1e1e1e;
+    --text-white: #ffffff;
+    --text-gray: #b3b3b3;
+    --accent: #5fffa0;
+    --border-color: #333333;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif; /* Agregué una fuente básica para que se vea limpio */
+    /* font-family: sans-serif; */
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem; /* Esto debe medir lo mismo que el min-height de tu header */
 }
 
 body {
     background-color: var(--bg-body);
     color: var(--text-white);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
 }
+
+h1, h2, h3, h4, h5, .planes button, .frase-inicio span {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+
+/***** MENÚ LATERAL *****/
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    z-index: 1000;
+    transition: left 0.4s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-lateral.activo {
+    left: 0; 
+}
+
+/* Botón de cerrar */
+.cabecera-menu {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.cerrar-menu {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Estilos de la lista de links */
+.menu-lateral nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.menu-lateral nav ul li {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.menu-lateral nav ul li a {
+    display: block;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu-lateral nav ul li a:hover {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.overlay.activo {
+    display: block;
+    opacity: 1;
+}
+
+
+
 
 /***** HEADER *****/
 header {
-    background-color: #000000; /* Header negro puro para diferenciarlo */
+    background-color: #000000;
     color: var(--text-white);
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 5rem;
     padding: 1rem;
-    position: sticky; /* Opcional: Para que el menú te siga al bajar */
+    
+    /* CAMBIA ESTO: */
+    position: fixed; /* En lugar de sticky */
     top: 0;
-    z-index: 100;
+    width: 100%; /* Al ser fixed, necesita que le aclares el ancho */
+    z-index: 100; /* Aseguramos que esté por encima de todo */
+
+
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -39,7 +146,7 @@ header {
     background: none;
     border: none;
     font-size: 1.7rem;
-    color: var(--text-white); /* Iconos blancos */
+    color: var(--text-white);
     cursor: pointer;
 }
 
@@ -55,47 +162,51 @@ header {
 h1 {
     font-size: 2rem;
     letter-spacing: 2px;
-    font-weight: 800; /* Más grueso para impacto */
+    font-weight: 800;
 }
-/***** FIN HEADER *****/
+
+/***** HEADER *****/
 
 
 /***** MAIN *****/
 main {
-    /* Eliminé el background gris y el gap gigante del main */
     display: flex;
     flex-direction: column;
 }
 
 /* INICIO */
 .inicio {
-    /* Agregué el degradado oscuro sobre la imagen para que el texto se lea SIEMPRE */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                      url(https://i.pinimg.com/736x/99/62/1d/99621d22dcf2b65c3b7ca8175d3a9f2c.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+                    url(img/principal2.png);
     background-size: cover;
-    background-position: center;
-    min-height: 80vh; /* Altura de la pantalla */
+    background-position: -70px;
+    min-height: 80vh;
     
     display: flex;
-    align-items: flex-start;    /* Alineado arriba */
-    justify-content: flex-start; /* Alineado a la izquierda */
+    align-items: flex-start;
+    justify-content: flex-start;
     
-    padding-top: 10rem; /* Bajamos un poco el texto */
+    padding-top: 10rem;
     padding-left: 5%;
 }
 
 .frase-inicio h2 {
     color: var(--text-white);
     font-size: 2rem;
-    font-weight: 400; /* Letra fina arriba */
+    font-weight: 400;
+    
+    /* --- NUEVO --- */
+    animation: entrarDesdeDerecha 0.8s ease-out forwards;
 }
 
 .frase-inicio span {
-    color: var(--accent); /* EL VERDE NEÓN */
-    font-size: 3.5rem;    /* Texto gigante */
-    font-weight: 900;     /* Letra gorda */
-    line-height: 0.9;     /* Pegadito */
-    display: block;
+    color: var(--accent);
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.9;
+    display: block; 
+    opacity: 0;
+    animation: entrarDesdeDerecha 0.8s ease-out 0.3s forwards; 
 }
 
 .autor {
@@ -103,11 +214,13 @@ main {
     font-size: 1rem;
     margin-top: 1rem;
     font-style: italic;
+    opacity: 0; 
+    animation: entrarDesdeDerecha 0.8s ease-out 0.6s forwards;
 }
 /* FIN INICIO */
 
 
-/* SECCIONES GENERALES (Padding interno en vez de gap externo) */
+/* SECCIONES GENERALES */
 .sec1, .sec2, .redes {
     padding: 4rem 1rem;
     display: flex;
@@ -121,88 +234,100 @@ main {
 .sec1 h2 {
     color: var(--text-white);
     text-transform: uppercase;
-    border-bottom: 2px solid var(--accent); /* Subrayado verde */
+    border-bottom: 2px solid var(--accent);
     padding-bottom: 0.5rem;
 }
 
-.sec1 img {
+.sec1 img, video {
     width: 100%;
-    max-width: 500px; /* Para que no sean gigantes en PC */
+    max-width: 500px;
     border-radius: 10px;
-    /* Un pequeño filtro para que las fotos se integren al modo oscuro */
     filter: brightness(0.9); 
 }
 
+.descripcion {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.descripcion h2 {
+    text-align: center;
+    margin: 1.8rem;
+    font-size: 1.2rem;
+}
+
+.descripcion p {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+}
 
 /* PLANES FIT (.sec2) */
 .sec2 h2 {
     font-size: 2.5rem;
     color: var(--text-white);
     text-transform: uppercase;
+    margin-top: -5rem;
 }
 
 .planes {
-    background-color: var(--bg-card); /* Tarjeta oscura */
-    border: 1px solid var(--border-color); /* Borde sutil */
-    border-radius: 15px; /* Bordes más redondeados */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra oscura */
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     
     display: flex;
     flex-direction: column;
     text-align: center;
     width: 90%;
-    max-width: 350px; /* Límite de ancho */
-    overflow: hidden; /* Para que nada se salga de los bordes redondos */
-    transition: transform 0.3s ease; /* Animación suave */
+    max-width: 350px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 /* Efecto al pasar el mouse por encima del plan */
 .planes:hover {
-    border-color: var(--accent); /* Se ilumina el borde verde */
-    transform: translateY(-5px); /* Flota un poquito */
+    border-color: var(--accent);
+    transform: translateY(-5px);
 }
 
 .planes * {
-    /* Quitamos el borde negro feo de los items internos */
     border-bottom: 1px solid var(--border-color); 
     padding: 1rem 0;
-    margin: 0 1rem; /* Margen a los costados para que la linea no toque el borde */
+    margin: 0 1rem;
 }
 
-/* Quitamos la línea del último elemento (el botón) */
 .planes button {
     border-bottom: none;
-    margin: 1.5rem auto; /* Centrado */
+    margin: 1.5rem auto;
 }
 
 /* TÍTULO DEL PLAN */
 .planes h3 {
     font-size: 1.5rem;
     color: var(--text-white);
-    background-color: #000; /* Fondo negro para el título */
-    margin: 0; /* Reseteo margin para que ocupe todo el ancho */
+    background-color: #000;
+    margin: 0;
     padding: 1.5rem 0;
-    border-bottom: 2px solid var(--accent); /* Línea verde debajo del título */
-    width: 100%; /* Ocupa todo el ancho */
+    border-bottom: 2px solid var(--accent);
+    width: 100%;
 }
 
-/* PRECIO */
 .precio {
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--accent); /* Precio en verde */
-    border-bottom: none !important; /* Sin línea divisoria abajo del precio */
+    color: var(--accent);
+    border-bottom: none !important;
     padding-bottom: 0 !important;
 }
 
 .planes p {
-    color: var(--text-gray); /* Texto descriptivo en gris */
+    color: var(--text-gray);
 }
 
-/* BOTÓN DE COMPRA */
 .planes button {
-    background-color: var(--accent); /* FONDO VERDE */
-    color: #000000; /* TEXTO NEGRO (para contraste) */
+    background-color: var(--accent);
+    color: #000000;
     font-weight: bold;
     text-transform: uppercase;
     padding: 1rem 2rem;
@@ -214,22 +339,60 @@ main {
 }
 
 .planes button:hover {
-    background-color: #fff; /* Al pasar el mouse se pone blanco */
+    background-color: #fff;
 }
 /* FIN PLANES */
 
 
 /* REDES Y FRASE */
+/* SOBRE MÍ */
+.sobre-mi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    gap: 1.5rem;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 15px rgba(95, 255, 160, 0.2);
+}
+
+.info-perfil h2 {
+    color: var(--text-white);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.info-perfil p {
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+
 .redes h3 {
     color: var(--text-white);
     font-size: 1.8rem;
     text-align: center;
     max-width: 80%;
-    margin: -5rem 0 -1.5rem 0;
+    margin: 0rem 0 -1.5rem 0;
 }
 
 .redes h5.frase {
-    color: var(--accent); /* Verde */
+    color: var(--accent);
     font-size: 1.2rem;
     margin-bottom: 3.5rem;
     text-transform: uppercase;
@@ -250,8 +413,19 @@ main {
     gap: 0.5rem;
 }
 
-/* IMPORTANTE: Si tu icono de instagram es negro, 
-   usamos este filtro para volverlo blanco automáticamente */
+.redes .ig a {
+    color: var(--text-white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.redes .ig a:hover {
+    color: var(--accent);
+}
+
 .redes img {
     width: 30px;
     filter: invert(1); 
@@ -272,4 +446,50 @@ footer {
 footer p {
     color: var(--text-gray);
     font-size: 0.9rem;
+}
+
+
+/***** DISEÑOS DE ANIMACION *****/
+@keyframes entrarDesdeDerecha {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*Para los titulos*/
+.animar-h2 {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animar-h2.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/*Para los planes*/
+.animar-plan {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animar-plan.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sec2 article:nth-child(2) { transition-delay: 0.1s; }
+.sec2 article:nth-child(3) { transition-delay: 0.3s; }
+.sec2 article:nth-child(4) { transition-delay: 0.5s; }
+
+/*Margen de Scroll*/
+section[id] {
+    scroll-margin-top: 9rem; /* Ajustá este número según el alto de tu header */
 }
