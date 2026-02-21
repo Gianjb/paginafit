@@ -3,19 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fitness</title>
+    <title>Pablo Chatte Fitt</title>
+
+    <meta name="description" content="Transformá tu físico con los planes de entrenamiento y nutrición de Pablo Chatte. Creá tu mejor versión hoy.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pablo Chatte Fitness | Empezá tu cambio">
+    <meta property="og:description" content="Planes de entrenamiento, alimentación y seguimiento personalizado. Dejá las excusas y superá tus límites.">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=15SucbhQkrjncPey5lw4CpWMtsG6nn9-c">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+    <link rel="icon" href="img/logopng.png" type="image/x-icon">
 </head>
 <body>
+    <div class="menu-lateral" id="menuLateral">
+    <div class="cabecera-menu">
+        <button class="cerrar-menu" id="btnCerrar">✕ Close</button>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" onclick="location.reload();">INICIO</a></li>
+            <li><a href="#planes">PLANES</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="overlay" id="overlay"></div>
     <header>
         <div class="lado-izq">
-            <button class="iconos-header">☰</button>
+            <button class="iconos-header" id="btnAbrir">☰</button>
         </div>
         <div class="logo-centro">
-            <h1>PABLITO</h1>
+            <h1 class="animar-h2">PABLO FITNESS</h1>
         </div>
         <div class="lado-der">
-            <button class="iconos-header">🛒</button>
+            <!-- <button class="iconos-header">🛒</button> -->
         </div>
     </header>
     <main>
@@ -23,54 +50,101 @@
             <article class="frase-inicio">
                 <h2>CREÁ TU</h2>
                 <span>MEJOR <br> VERSION</span>
-                <p class="autor">by pablito</p>
+                <p class="autor">by Pablo Chatte</p>
             </article>
             
         </section>
         <section class="sec1">
-            <h2> EMPEZÁ TU CAMBIO </h2>
-            <img src="https://i.pinimg.com/736x/0f/56/15/0f5615e0f470e7148324780f471b4a69.jpg" alt="Vid/Img">
-            <img src="https://i.pinimg.com/736x/fb/fd/0a/fbfd0aabe5ab2598822afad118b37f52.jpg" alt="Vid/Img">
-            <img src="https://i.pinimg.com/736x/cb/6c/75/cb6c7527d65d4d1f7e58f9c461cd6047.jpg" alt="Vid/Img">
-        </section>
-        <section class="sec2">
-            <h2>PLANES FIT</h2>
-            <article class="planes">
-                <h3> Plan Basico </h3>
-                <p class="precio">$35.000</p>
-                <p>30 dias</p>
-                <p>Alimentación</p>
-                <p>Entrenamiento</p>
-                <p>Suplementación</p>
-                <p>Aca se agregan mas</p>
-                <button>Consultar WhatsApp</button>
+            <h2 class="animar-h2"> EMPEZÁ TU CAMBIO </h2>
+            <video controls muted class="animar-h2">
+            <source src="img/video.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+            </video>
+            <article class="descripcion">
+                <h2 class="animar-h2">¿ESTÁS LISTO PARA EL CAMBIO?</h2>
+                <p class="animar-plan">Por experiencia propia te aseguro que transformar tu físico y tu mente es 100% 
+                    posible. No se trata de sufrir, se trata de tomar la decisión y tener la voluntad de 
+                    mantenerla en el tiempo. <br><br>
+                    Con mi ayuda, vas a aprender a entrenar de forma inteligente y a nutrirte sin dietas 
+                    extremas. El equilibrio entre el ejercicio y la alimentación es la verdadera clave para 
+                    lograr ese cuerpo que buscás de forma saludable. <br><br>
+                    Si llegaste hasta acá, ya diste el paso más difícil. ¡Vamos con todo, que esto recién 
+                    empieza!
+                </p>
             </article>
-            <article class="planes">
-                <h3> Plan Basico </h3>
-                <p class="precio">$35.000</p>
-                <p>30 dias</p>
-                <p>Alimentación</p>
-                <p>Entrenamiento</p>
-                <p>Suplementación</p>
-                <p>Aca se agregan mas</p>
-                <button>Consultar WhatsApp</button>
-            </article>
-            <article class="planes">
-                <h3> Plan Basico </h3>
-                <p class="precio">$35.000</p>
-                <p>30 dias</p>
-                <p>Alimentación</p>
-                <p>Entrenamiento</p>
-                <p>Suplementación</p>
-                <p>Aca se agregan mas</p>
-                <button>Consultar WhatsApp</button>
+            <img class="animar-h2" src="img/foto2.jpg" alt="Vid/Img">
+            <img class="animar-h2" src="img/foto3.jpg" alt="Vid/Img">
+            <article class="descripcion">
+                <h2 class="animar-h2">Entrenamiento Inteligente</h2>
+                <p class="animar-plan">
+                    Alcanzar tu objetivo es mucho más fácil cuando sabés exactamente qué hacer cada 
+                    día. Olvidate de las rutinas genéricas de internet; acá tenés programas completos, 
+                    probados y efectivos. <br><br>
+                    Entrenamiento, alimentación y suplementación. Todo resuelto en un solo lugar. Elegí
+                    tu plan y empecemos a trabajar.
+                </p>
             </article>
         </section>
-        <article class="redes">
+        <section class="sec2" id="planes">
+            <h2 class="animar-h2">PLANES FIT</h2>
+            <article class="planes animar-plan">
+                <h3> Plan Basico </h3>
+                <p class="precio">$35.000</p>
+                <p>30 dias</p>
+                <p>Alimentación</p>
+                <p>Entrenamiento</p>
+                <p>Suplementación</p>
+                <p>Aca se agregan mas</p>
+                <button onclick="window.open('https://wa.me/5492214552510?text=Hola! Me interesa recibir más información sobre el PLAN BASICO. ¿Cómo podemos empezar?', '_blank')">
+                    Consultar WhatsApp
+                </button>
+            </article>
+            <article class="planes animar-plan">
+                <h3> Plan Medio </h3>
+                <p class="precio">$35.000</p>
+                <p>30 dias</p>
+                <p>Alimentación</p>
+                <p>Entrenamiento</p>
+                <p>Suplementación</p>
+                <p>Aca se agregan mas</p>
+                <button onclick="window.open('https://wa.me/5492214552510?text=Hola! Me interesa recibir más información sobre el PLAN MEDIO. ¿Cómo podemos empezar?', '_blank')">
+                    Consultar WhatsApp
+                </button>
+            </article>
+            <article class="planes animar-plan">
+                <h3> Plan Ultra </h3>
+                <p class="precio">$35.000</p>
+                <p>30 dias</p>
+                <p>Alimentación</p>
+                <p>Entrenamiento</p>
+                <p>Suplementación</p>
+                <p>Aca se agregan mas</p>
+                <button onclick="window.open('https://wa.me/5492214552510?text=Hola! Me interesa recibir más información sobre el PLAN ULTRA. ¿Cómo podemos empezar?', '_blank')">
+                    Consultar WhatsApp
+                </button>
+            </article>
+        </section>
+        <section class="sobre-mi animar-h2" id="contacto">
+            <img src="img/pablo-perfil.png" alt="Pablo Chatte" class="foto-perfil">
+            <div class="info-perfil">
+                <h2>¿QUIÉN SOY?</h2>
+                <p>
+                    Soy Pablo Chatte. Ya recorrí el camino y sé exactamente qué funciona para 
+                    transformar un físico. Mi objetivo no es darte una rutina más, sino ahorrarte errores 
+                    y enseñarte la disciplina exacta para superar tus límites.
+                </p>
+            </div>
+        </section>
+        <article class="redes animar-plan" >
             <h3>Te ayudo a lograr tus metas</h3>
             <h5 class="frase">¡No dudes en comenzar!</h5>
             <h4>No olvides seguirme: </h4>
-            <p class="ig"><img src="instagram.png" alt="error">AcaVaElIG</p>
+            <p class="ig">
+            <a href="https://www.instagram.com/pablochatte" target="_blank">
+                <img src="img/instagram.png" alt="Instagram">
+                @pablochatte
+            </a>
+</p>
         </article>
         <footer>
             <p>©GJB</p>
